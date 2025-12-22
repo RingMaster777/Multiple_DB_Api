@@ -1,0 +1,71 @@
+## Binaries
+bin/
+obj/
+out/
+
+## User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Ww]in32/
+[Aa]rm/
+[Aa]rm64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+## Visual Studio
+.vs/
+.vscode/
+*.vsidx
+*.vspscc
+*.vspx
+*.sap
+*.vsp
+
+## Rider
+.idea/
+*.sln.iml
+
+## User-specific files
+appsettings.Local.json
+appsettings.*.Local.json
+
+## Database files
+*.db
+*.db-shm
+*.db-wal
+
+## Logs
+logs/
+*.log
+
+## OS files
+.DS_Store
+Thumbs.db
+
+## Publish profiles
+PublishProfiles/
+*.pubxml
+*.publishproj
+
+## NuGet
+*.nupkg
+*.snupkg
+**/packages/*
+!**/packages/build/
+
+## Tools
+.dotnet/
+.tools/
