@@ -2,13 +2,13 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MyApi.Data;
-using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-namespace MyApi.Data.Migrations.PostgreSQL
+namespace MyApi.Migrations.MSSQL
 {
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
@@ -18,39 +18,39 @@ namespace MyApi.Data.Migrations.PostgreSQL
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "9.0.0")
-                .HasAnnotation("Relational:MaxIdentifierLength", 63);
+                .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
-            NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
+            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
             modelBuilder.Entity("MyApi.Models.Product", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
                         .HasMaxLength(1000)
-                        .HasColumnType("character varying(1000)");
+                        .HasColumnType("nvarchar(1000)");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(200)
-                        .HasColumnType("character varying(200)");
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<decimal>("Price")
                         .HasPrecision(18, 2)
-                        .HasColumnType("numeric(18,2)");
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("Stock")
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
                     b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -62,7 +62,7 @@ namespace MyApi.Data.Migrations.PostgreSQL
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2025, 12, 22, 19, 26, 26, 679, DateTimeKind.Utc).AddTicks(2336),
+                            CreatedAt = new DateTime(2025, 12, 28, 18, 20, 34, 269, DateTimeKind.Utc).AddTicks(229),
                             Description = "This is a sample product",
                             Name = "Sample Product 1",
                             Price = 29.99m,
@@ -71,7 +71,7 @@ namespace MyApi.Data.Migrations.PostgreSQL
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2025, 12, 22, 19, 26, 26, 679, DateTimeKind.Utc).AddTicks(3034),
+                            CreatedAt = new DateTime(2025, 12, 28, 18, 20, 34, 269, DateTimeKind.Utc).AddTicks(754),
                             Description = "Another sample product",
                             Name = "Sample Product 2",
                             Price = 49.99m,
